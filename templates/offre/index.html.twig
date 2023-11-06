@@ -1,0 +1,53 @@
+{% extends 'base-back.html.twig' %}
+
+
+{% block title %}Offre index{% endblock %}
+{% block contenu %}
+    <h1>Offre index</h1>
+    <div class="card">
+            <div class="card-body">
+              <h5 class="card-title"></h5>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomDuSoin</th>
+                <th>Societe</th>
+                <th>Categorie</th>
+                <th>Prix</th>
+                <th>DateDebut</th>
+                <th>DateFin</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offre in offres %}
+            <tr>
+                <td>{{ offre.id }}</td>
+                <td>{{ offre.nomDuSoin }}</td>
+                <td>{{ offre.convention.societe }}</td>
+                <td>{{ offre.categorie }}</td>
+                <td>{{ offre.prix }}</td>
+                <td>{{ offre.dateDebut ? offre.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offre.dateFin ? offre.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offre.image }}</td>
+                <td>
+                    <a href="{{ path('app_offre_show', {'id': offre.id}) }}">show</a>
+                    <a href="{{ path('app_offre_edit', {'id': offre.id}) }}">edit</a>
+                                        <form method="post" action="{{ path('app_offre_delete', {'id': offre.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément ?');" style="display: inline-block;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ offre.id) }}">
+                    <button class="btn btn-danger">Supprimer</button>
+                </form> 
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_offre_new') }}">Create new</a>
+{% endblock %}

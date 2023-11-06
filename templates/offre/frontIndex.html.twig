@@ -1,0 +1,32 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Offre{% endblock %}
+{% block body_span %} {% endblock %}
+{% block body_h1 %}Nos Offre{% endblock %}
+{% block body_p %}{% endblock %}
+
+
+{% block contenu %}
+
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                {% for offre in offres %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-blog-item">
+                        <img src="{{ asset('uploads/' ~ offre.image ) }}" alt="">
+                        <h6>{{ offre.nomDuSoin }} - {{ offre.convention.societe }}</h6>
+                        <div class="blog-widget">              
+                            <div class="bw-date">From {{ offre.dateDebut ? offre.dateDebut|date('Y-m-d H:i:s') : '' }} to {{ offre.dateFin ? offre.dateFin|date('Y-m-d H:i:s') : '' }}</div>
+                            <a href="#" class="tag">{{ offre.categorie }}</a>
+                        </div>
+                        <h4><a href="./blog-details.html">{{ offre.prix }} DT</a></h4>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

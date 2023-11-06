@@ -1,0 +1,80 @@
+<div class="card">
+            <div class="card-body">
+            <a href="{{ path('app_offre_index') }}"><i class="ri-arrow-left-circle-fill" style="font-size: 50px;"></i></a>
+
+              <!-- General Form Elements -->
+
+  {{ form_start(form,{attr:{novalidate:'novalidate'}}) }}
+           <div class="row mb-3">
+                  <label for="inputEmail" class="col-sm-4 col-form-label">Nom Du Soin</label>
+                  <div class="col-sm-10">
+                     {{ form_widget(form.nomDuSoin,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                  {{ form_errors(form.nomDuSoin,{'attr':{'class':'text-danger'}}) }}
+                </div>
+          
+                                                           <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">Societe</label>
+                  <div class="col-sm-10">
+                     {{ form_widget(form.convention,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                  {{ form_errors(form.convention,{'attr':{'class':'text-danger'}}) }}
+                </div>
+                                                 <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">Catégorie</label>
+                  <div class="col-sm-10">
+                     {{ form_widget(form.categorie,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                  {{ form_errors(form.categorie,{'attr':{'class':'text-danger'}}) }}
+                </div>
+                
+    
+                <div class="row mb-3">
+                  <label for="inputPassword" class="col-sm-4 col-form-label">Prix</label>
+                  <div class="col-sm-10">
+                       {{ form_widget(form.prix,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                   {{ form_errors(form.prix,{'attr':{'class':'text-danger'}}) }}
+                </div>
+                  <div class="col-sm-10">
+ <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">Date Début</label>
+                   {{ form_widget(form.dateDebut,{'attr':{'class':'form-control'}}) }}
+                </div>
+                  {{ form_errors(form.dateDebut,{'attr':{'class':'text-danger'}}) }}
+                </div>
+                
+                 <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">Date Fin</label>
+                 
+                 
+                  <div class="col-sm-10">
+                     {{ form_widget(form.dateFin,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                  {{ form_errors(form.dateFin,{'attr':{'class':'text-danger'}}) }}
+                </div>
+
+
+                                 <div class="row mb-3">
+                  <label for="inputDate" class="col-sm-4 col-form-label">Image</label>
+                  <div class="col-sm-10">
+                     {{ form_widget(form.image,{'attr':{'class':'form-control'}}) }}
+                  </div>
+                  {{ form_errors(form.image,{'attr':{'class':'text-danger'}}) }}
+                </div>
+
+
+                
+                <br/>
+                    <div class="col-sm-10" style="display: flex;align-items: center;justify-content: center">
+
+                        {{ form_widget(form.save,{'attr':{'class':'btn btn-primary'}}) }}
+                    </div>
+
+                     
+
+                      
+              {{form_end(form) }}<!-- End General Form Elements -->
+
+            </div>
+          </div>

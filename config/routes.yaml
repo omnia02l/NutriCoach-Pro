@@ -1,0 +1,3 @@
+app_alertes:
+    path: /alerte
+    controller: App\Controller\AlerteController::frontIndex

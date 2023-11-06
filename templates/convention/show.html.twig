@@ -1,0 +1,42 @@
+{% extends 'base-back.html.twig' %}
+
+{% block title %}Convention{% endblock %}
+
+{% block contenu %}
+   
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ convention.id }}</td>
+            </tr>
+            <tr>
+                <th>Societe</th>
+                <td>{{ convention.societe }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ convention.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ convention.email }}</td>
+            </tr>
+            <tr>
+                <th>Telephone</th>
+                <td>{{ convention.telephone }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ convention.status }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_convention_index') }}">back to list</a>
+
+    <a href="{{ path('app_convention_edit', {'id': convention.id}) }}">edit</a>
+
+    {{ include('convention/_delete_form.html.twig') }}
+{% endblock %}
